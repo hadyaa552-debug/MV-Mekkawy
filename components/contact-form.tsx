@@ -6,10 +6,19 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useLang } from "@/lib/lang-context"
+
+const t = {
+  en: { title: "Contact Sales Team", sub: "Our consultant will reach you within 24 hours", name: "Full Name *", phone: "Phone Number *", project: "Select Project *", btn: "Send Request", sending: "Sending...", projects: ["iCity – New Cairo", "Aliva – Mostakbal City", "Jirian – Sheikh Zayed", "Multiple Projects"] },
+  ar: { title: "تواصل مع قسم المبيعات", sub: "سيتواصل معك مستشارنا خلال ٢٤ ساعة", name: "الاسم الكريم *", phone: "رقم الهاتف *", project: "المشروع المهتم به *", btn: "إرسال الطلب", sending: "جاري الإرسال...", projects: ["iCity – القاهرة الجديدة", "أليفا – مدينة المستقبل", "جيريان – الشيخ زايد", "أكثر من مشروع"] },
+}
 
 export default function ContactForm() {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
+  const { lang } = useLang()
+  const isAr = lang === "ar"
+  const c = t[lang]
   const [formData, setFormData] = useState({ name: "", phone: "", project: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,12 +29,11 @@ export default function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          name: formData.name,
-          phone: formData.phone,
+          name: formData.name, phone: formData.phone,
           project: formData.project || "Not specified",
           _subject: "New Lead – Mountain View",
-          _captcha: "false",
-          _template: "table",
+          _captcha: "false", _template: "table",
+          _cc: "leads@grandeur-spaces.com",
         }),
       })
       if (res.ok) { router.push("/thank-you") }
@@ -34,33 +42,25 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="shadow-2xl border-0 bg-white">
+    <Card className="shadow-2xl border-0 bg-white" dir={isAr ? "rtl" : "ltr"}>
       <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-black text-foreground">Contact Sales Team</CardTitle>
-        <p className="text-sm text-muted-foreground">Our consultant will reach you within 24 hours</p>
+        <CardTitle className="text-lg font-black text-foreground">{c.title}</CardTitle>
+        <p className="text-sm text-muted-foreground">{c.sub}</p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-3">
-          <Input placeholder="Full Name *" value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            required className="h-11" />
-          <Input type="tel" placeholder="Phone Number *" value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            required className="h-11" />
+          <Input placeholder={c.name} value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required className={`h-11 ${isAr ? "text-right" : ""}`} />
+          <Input type="tel" placeholder={c.phone} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} required className="h-11" dir="ltr" />
           <Select value={formData.project} onValueChange={(v) => setFormData({ ...formData, project: v })}>
-            <SelectTrigger className="h-11 bg-white border border-input">
-              <SelectValue placeholder="Select Project *" />
+            <SelectTrigger className={`h-11 bg-white border border-input ${isAr ? "text-right" : ""}`}>
+              <SelectValue placeholder={c.project} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="icity">iCity – New Cairo</SelectItem>
-              <SelectItem value="aliva">Aliva – Mostakbal City</SelectItem>
-              <SelectItem value="jirian">Jirian – Sheikh Zayed</SelectItem>
-              <SelectItem value="all">Multiple Projects</SelectItem>
+              {c.projects.map((p, i) => <SelectItem key={i} value={p}>{p}</SelectItem>)}
             </SelectContent>
           </Select>
-          <Button type="submit" disabled={loading}
-            className="w-full h-12 bg-foreground hover:bg-foreground/90 text-white font-black text-sm tracking-widest uppercase">
-            {loading ? "Sending..." : "Send Request"}
+          <Button type="submit" disabled={loading} className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-black text-sm tracking-widest uppercase">
+            {loading ? c.sending : c.btn}
           </Button>
         </form>
       </CardContent>

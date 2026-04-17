@@ -5,23 +5,21 @@
 
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(0.10 0.005 60);
+  --foreground: oklch(0.18 0.04 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.10 0.005 60);
-  --primary: oklch(0.62 0.08 75);
+  --card-foreground: oklch(0.18 0.04 240);
+  --primary: oklch(0.32 0.10 240);
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.97 0.003 80);
-  --secondary-foreground: oklch(0.10 0.005 60);
-  --muted: oklch(0.96 0.003 80);
-  --muted-foreground: oklch(0.52 0.01 60);
-  --accent: oklch(0.62 0.08 75);
+  --secondary: oklch(0.96 0.008 240);
+  --secondary-foreground: oklch(0.18 0.04 240);
+  --muted: oklch(0.96 0.005 240);
+  --muted-foreground: oklch(0.52 0.02 240);
+  --accent: oklch(0.32 0.10 240);
   --accent-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.004 80);
-  --input: oklch(0.96 0.003 80);
-  --ring: oklch(0.62 0.08 75);
+  --border: oklch(0.91 0.008 240);
+  --input: oklch(0.96 0.005 240);
+  --ring: oklch(0.32 0.10 240);
   --radius: 0rem;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
 }
 
 @theme inline {
