@@ -6,7 +6,7 @@ export default function WhatsAppWidget() {
   const msg = lang === "ar"
     ? encodeURIComponent("أنا مهتم بمشاريع ماونتن فيو")
     : encodeURIComponent("I'm interested in Mountain View projects")
-  const phone = "201110944499"
+  const phone = "201008900076"
   return (
     <div className="fixed bottom-6 left-6 z-50 hidden lg:flex flex-col gap-3">
       <a href={`tel:+${phone}`} className="w-12 h-12 bg-primary hover:bg-primary/90 text-white rounded-full flex items-center justify-center shadow-xl transition-all hover:scale-110">
