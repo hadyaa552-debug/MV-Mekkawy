@@ -47,12 +47,12 @@ export default function Header() {
             className={`text-xs font-black tracking-widest px-3 py-1.5 border transition-all ${scrolled ? "border-primary text-primary hover:bg-primary hover:text-white" : "border-white/40 text-white hover:bg-white/10"}`}>
             {isAr ? "EN" : "AR"}
           </button>
-          <a href="tel:+201110944499" className={`hidden sm:block text-sm font-black transition-colors ${scrolled ? "text-foreground" : "text-white"}`} dir="ltr">01110944499</a>
+          <a href="tel:+201008900076" className={`hidden sm:block text-sm font-black transition-colors ${scrolled ? "text-foreground" : "text-white"}`} dir="ltr">01008900076</a>
           <a href="#contact" onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }) }}
             className="hidden sm:block bg-primary text-white px-5 py-2 text-xs font-black tracking-widest uppercase hover:bg-primary/90 transition-colors">
             {isAr ? "احجز الآن" : "Book Now"}
           </a>
-          <a href="tel:+201110944499" className="sm:hidden bg-primary text-white p-2.5"><Phone className="w-5 h-5" /></a>
+          <a href="tel:+201008900076" className="sm:hidden bg-primary text-white p-2.5"><Phone className="w-5 h-5" /></a>
         </div>
       </div>
     </header>
