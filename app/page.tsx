@@ -15,7 +15,7 @@ import { useLang } from "@/lib/lang-context"
 function ContactSection() {
   const { lang } = useLang()
   const isAr = lang === "ar"
-  const phone = "+201110944499"
+  const phone = "+201008900076"
 
   return (
     <section id="contact" className="py-24 bg-muted/30" dir={isAr ? "rtl" : "ltr"}>
@@ -27,7 +27,7 @@ function ContactSection() {
         </div>
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <a href={`tel:${phone}`} className="text-2xl font-black text-foreground hover:text-primary block mb-8" dir="ltr">01110944499</a>
+            <a href={`tel:${phone}`} className="text-2xl font-black text-foreground hover:text-primary block mb-8" dir="ltr">01008900076</a>
             <div className="space-y-0">
               {[
                 { en: "iCity New Cairo", ar: "iCity القاهرة الجديدة", locEn: "Fifth Settlement • Ring Road", locAr: "التجمع الخامس • Ring Road" },
