@@ -21,11 +21,11 @@ export default function ThankYou() {
           </p>
         </div>
         <div className="border border-border p-5 text-left space-y-3">
-          <a href="tel:+201110944499" className="flex items-center justify-between py-2 border-b border-border hover:text-primary transition-colors">
-            <span className="font-bold text-sm" dir="ltr">01110944499</span>
+          <a href="tel:+201008900076" className="flex items-center justify-between py-2 border-b border-border hover:text-primary transition-colors">
+            <span className="font-bold text-sm" dir="ltr">01008900076</span>
             <span className="text-xs text-muted-foreground uppercase tracking-wide">{isAr ? "اتصال مباشر" : "Call Direct"}</span>
           </a>
-          <a href="https://wa.me/201110944499" target="_blank" rel="noopener noreferrer"
+          <a href="https://wa.me/201008900076" target="_blank" rel="noopener noreferrer"
             className="flex items-center justify-between py-2 hover:text-primary transition-colors">
             <span className="font-bold text-sm text-green-600">WhatsApp</span>
             <span className="text-xs text-muted-foreground uppercase tracking-wide">{isAr ? "رد فوري" : "Instant Reply"}</span>
