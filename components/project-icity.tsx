@@ -29,7 +29,7 @@ export default function ProjectIcity() {
   const { lang } = useLang()
   const isAr = lang === "ar"
   const c = content[lang]
-  const phone = "+201110944499"
+  const phone = "+201008900076"
   const waLink = `https://wa.me/${phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(c.wa)}`
   const flip = false
 
